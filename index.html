@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="PHENIX-ROYAL conçoit des plateformes web élégantes et performantes, des identités visuelles et des solutions numériques adaptées au mobile.">
     <title>PHENIX-ROYAL — Ingénierie & Architecture Web</title>
+    <link rel="icon" type="image/png" href="assets/phenix-logo.png">
+    <link rel="apple-touch-icon" href="assets/phenix-logo.png">
     <!-- Importation des polices académiques et modernes depuis Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -111,7 +113,19 @@
             color: var(--accent-navy);
             text-decoration: none;
             position: relative;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .logo-mark {
+            width: 42px;
+            height: 42px;
+            flex: 0 0 42px;
+            object-fit: cover;
+            border: 2px solid var(--accent-gold);
+            border-radius: 50%;
+            box-shadow: 0 3px 14px rgba(11, 27, 61, 0.14);
         }
 
         .logo span {
@@ -600,6 +614,17 @@
             color: var(--accent-navy);
             margin-bottom: 1.5rem;
             letter-spacing: 0.05em;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+        }
+
+        .footer-logo img {
+            width: 38px;
+            height: 38px;
+            object-fit: cover;
+            border: 2px solid var(--accent-gold);
+            border-radius: 50%;
         }
 
         .motion-ready [data-aos] {
@@ -659,6 +684,7 @@
         @media (max-width: 768px) {
             header { padding: 1.2rem 0; }
             .nav-wrapper { flex-direction: column; gap: 1.2rem; }
+            .logo-mark { width: 38px; height: 38px; flex-basis: 38px; }
             nav { width: 100%; flex-wrap: wrap; justify-content: center; gap: 0.25rem 0.6rem; }
             nav a { margin: 0; padding: 0.25rem; font-size: 0.9rem; }
             .hero { padding: 7rem 0 5rem 0; }
@@ -677,7 +703,10 @@
 
     <header id="mainHeader">
         <div class="container nav-wrapper">
-            <a href="#" class="logo">PHENIX-ROYAL<span>.</span></a>
+            <a href="#" class="logo">
+                <img class="logo-mark" src="assets/phenix-logo.png" alt="" width="42" height="42">
+                <span>PHENIX-ROYAL<span>.</span></span>
+            </a>
             <nav>
                 <a href="#expertises">Expertises</a>
                 <a href="#honoraires">Honoraires</a>
@@ -827,7 +856,10 @@
 
     <footer>
         <div class="container">
-            <div class="footer-logo">PHENIX-ROYAL.</div>
+            <div class="footer-logo">
+                <img src="assets/phenix-logo.png" alt="" width="38" height="38" loading="lazy">
+                <span>PHENIX-ROYAL.</span>
+            </div>
             <p>&copy; 2026 PHENIX-ROYAL — Direction d'Ingénierie & Design Numérique. Tous droits réservés.</p>
             <p style="margin-top: 0.75rem; font-size: 0.82rem; opacity: 0.65;">Liaison technique directe : +225 07 13 86 80 91</p>
         </div>

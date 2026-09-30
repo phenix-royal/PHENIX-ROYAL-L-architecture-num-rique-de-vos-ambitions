@@ -2,7 +2,7 @@ PHENIX-ROYAL — SITE VITRINE
 
 Fichiers :
 - index.html : nouvelle page principale, avec le style et les animations intégrés
-- assets/ : image de fond du phénix et aperçus des projets utilisés dans le portfolio
+- assets/ : logo du phénix (également icône du site), image de fond et aperçus du portfolio
 - style.css et script.js : fichiers de l'ancienne interface, non utilisés par la nouvelle page
 
 Pour tester :
