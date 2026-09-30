@@ -12,8 +12,8 @@ Pour tester :
 4. L'image de fond sur toute la page est assets/phenix-background.png.
 5. Les aperçus du portfolio utilisent boussole-preview.svg et neo-preview.svg.
 
-Tarifs affichés :
-- Site web : à partir de 30 000 FCFA
-- Logo : à partir de 20 000 FCFA
+Offre promotionnelle valable jusqu'au 17 octobre 2026 inclus :
+- Site web : 30 000 FCFA au lieu du prix fixe de 80 000 FCFA
+- Logo : 20 000 FCFA au lieu du prix fixe de 50 000 FCFA
 
 Contact WhatsApp : +225 07 13 86 80 91
