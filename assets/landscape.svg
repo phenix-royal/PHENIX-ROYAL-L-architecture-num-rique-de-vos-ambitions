@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#9ed7f0"/><stop offset=".55" stop-color="#dceef0"/><stop offset="1" stop-color="#f6e9cf"/>
+  </linearGradient>
+  <linearGradient id="mount" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#536d7b"/><stop offset="1" stop-color="#253844"/>
+  </linearGradient>
+  <linearGradient id="lake" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#8bc6d1"/><stop offset="1" stop-color="#356878"/>
+  </linearGradient>
+  <filter id="blur"><feGaussianBlur stdDeviation="18"/></filter>
+</defs>
+<rect width="1600" height="900" fill="url(#sky)"/>
+<circle cx="1240" cy="170" r="90" fill="#fff4c5" opacity=".8" filter="url(#blur)"/>
+<path d="M0 520 L260 270 L420 440 L650 120 L850 410 L1060 205 L1320 470 L1510 280 L1600 390 V900 H0Z" fill="url(#mount)"/>
+<path d="M0 565 L280 350 L430 500 L650 205 L850 455 L1060 285 L1320 520 L1510 355 L1600 450 V900 H0Z" fill="#39515e" opacity=".8"/>
+<path d="M650 120 L585 215 L650 190 L700 250 L760 210 L850 410 Z" fill="#f4f7f4" opacity=".9"/>
+<path d="M1060 205 L1015 275 L1060 260 L1105 310 L1160 280 L1320 470 Z" fill="#f4f7f4" opacity=".75"/>
+<path d="M0 620 Q350 500 700 640 T1600 600 V900 H0Z" fill="url(#lake)" opacity=".9"/>
+<path d="M0 690 Q330 620 680 710 T1600 675" fill="none" stroke="#d9f0ed" stroke-width="10" opacity=".45"/>
+<path d="M0 760 Q400 670 800 780 T1600 735 V900 H0Z" fill="#1d4c45" opacity=".75"/>
+<g fill="#183c35">
+  <path d="M80 780 l45-130 45 130z"/><path d="M170 790 l55-160 55 160z"/>
+  <path d="M1320 800 l50-150 50 150z"/><path d="M1430 800 l45-130 45 130z"/>
+</g>
+</svg>

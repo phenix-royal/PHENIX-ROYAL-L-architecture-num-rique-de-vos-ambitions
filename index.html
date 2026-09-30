@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PHENIX-ROYAL conçoit des plateformes web élégantes et performantes, des identités visuelles et des solutions numériques adaptées au mobile.">
+    <title>PHENIX-ROYAL — Ingénierie & Architecture Web</title>
+    <!-- Importation des polices académiques et modernes depuis Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* Variables de design - Palette Institutionnelle & Prestige */
+        :root {
+            --bg-paper: #fbfaf7;       /* Fond ivoire style papier d'édition précieux */
+            --text-primary: #0f1626;   /* Bleu nuit très profond pour une autorité maximale */
+            --text-secondary: #4a5568; /* Gris plomb pour les descriptions */
+            --accent-navy: #0b1b3d;    /* Bleu académique impérial */
+            --accent-gold: #c5a059;    /* Or noble pour les éléments de prestige */
+            --border-color: rgba(197, 160, 89, 0.15); /* Bordures subtiles teintées d'or */
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: transparent;
+            color: var(--text-primary);
+            line-height: 1.8;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            isolation: isolate;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background:
+                linear-gradient(rgba(251, 250, 247, 0.58), rgba(251, 250, 247, 0.68)),
+                url("assets/phenix-background.png") center 34% / cover no-repeat;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        /* Ligne de progression de lecture élégante */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(to right, var(--accent-navy), var(--accent-gold));
+            width: 0%;
+            z-index: 999;
+            transition: width 0.1s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2.5rem;
+        }
+
+        /* En-tête de Prestige Effet Verre Flouté */
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.5rem 0;
+            background: rgba(251, 250, 247, 0.85);
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 500;
+            transition: all 0.4s ease;
+        }
+
+        header.scrolled {
+            padding: 1rem 0;
+            box-shadow: 0 10px 30px rgba(15, 22, 38, 0.04);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            color: var(--accent-navy);
+            text-decoration: none;
+            position: relative;
+            display: inline-block;
+        }
+
+        .logo span {
+            color: var(--accent-gold);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            margin-left: 2.5rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        /* Effet de survol interactif professoral */
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-gold);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Section Héros Impériale */
+        .hero {
+            padding: 10rem 0 8rem 0;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(circle at 50% 20%, rgba(197, 160, 89, 0.04) 0%, transparent 70%);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            background: rgba(197, 160, 89, 0.08);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            color: var(--accent-navy);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border-radius: 2px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            line-height: 1.15;
+            margin-bottom: 2rem;
+            color: var(--accent-navy);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 750px;
+            margin: 0 auto 3rem auto;
+            font-weight: 300;
+        }
+
+        .cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.95rem 2.2rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border-radius: 3px;
+            letter-spacing: 0.02em;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-navy);
+            color: white;
+            border: 1px solid var(--accent-navy);
+            box-shadow: 0 4px 15px rgba(11, 27, 61, 0.15);
+        }
+
+        .btn-primary:hover {
+            color: white;
+            background-color: var(--accent-gold);
+            border-color: var(--accent-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(197, 160, 89, 0.25);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent-navy);
+            border: 1px solid var(--accent-navy);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(11, 27, 61, 0.03);
+            transform: translateY(-2px);
+        }
+
+        /* Sections Structurelles */
+        section {
+            padding: 7.5rem 0;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.1);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--accent-navy);
+            margin-bottom: 0.75rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin: 0 auto 5rem auto;
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+        }
+
+        /* Grille des Services Dynamique */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 3rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background-color: var(--accent-gold);
+            transition: height 0.3s ease;
+            z-index: 1;
+            opacity: 0.7;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(15, 22, 38, 0.05);
+            border-color: var(--accent-gold);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: var(--accent-navy);
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .service-icon {
+            font-size: 1.3rem;
+            color: var(--accent-gold);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(197, 160, 89, 0.08);
+            border-radius: 50%;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.98rem;
+        }
+
+        /* Grille d'Honoraires Distinctive */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .price-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 4rem 3rem;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .price-card:hover {
+            box-shadow: 0 25px 50px rgba(15, 22, 38, 0.06);
+            border-color: rgba(197, 160, 89, 0.5);
+        }
+
+        .price-card.featured {
+            border: 1px solid var(--accent-gold);
+            background: linear-gradient(180deg, #ffffff 0%, rgba(197, 160, 89, 0.02) 100%);
+        }
+
+        .price-card h3 {
+            font-size: 1.6rem;
+            color: var(--accent-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .price-meta {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .amount {
+            font-size: 2.2rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--accent-navy);
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+            font-weight: 600;
+        }
+
+        .price-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+
+        .price-features li {
+            font-size: 0.98rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .price-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+
+        /* Portfolio Haute Couture */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3.5rem;
+        }
+
+        .portfolio-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(15, 22, 38, 0.08);
+            border-color: var(--accent-gold);
+        }
+
+        .portfolio-img-wrapper {
+            position: relative;
+            background: linear-gradient(135deg, #0b1b3d 0%, #1c2331 100%);
+            height: 260px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.85);
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            overflow: hidden;
+        }
+
+        .portfolio-boussole {
+            background-image: linear-gradient(rgba(11, 27, 61, 0.52), rgba(11, 27, 61, 0.72)), url("assets/boussole-preview.svg");
+            background-position: center;
+            background-size: cover;
+        }
+
+        .portfolio-neo {
+            background-image: linear-gradient(rgba(11, 27, 61, 0.38), rgba(11, 27, 61, 0.64)), url("assets/neo-preview.svg");
+            background-position: center;
+            background-size: cover;
+        }
+
+        /* Effet lumineux de survol sur les projets */
+        .portfolio-img-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.13) 100%);
+            transform: skewX(-25deg);
+            transition: all 0.75s ease;
+        }
+
+        .portfolio-card:hover .portfolio-img-wrapper::after {
+            left: 125%;
+        }
+
+        .portfolio-content {
+            padding: 2.5rem;
+        }
+
+        .portfolio-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent-gold);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .portfolio-card h3 {
+            font-size: 1.5rem;
+            color: var(--accent-navy);
+            margin-bottom: 1rem;
+        }
+
+        /* Section Manifeste & Piliers */
+        .about-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-text {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin-bottom: 4.5rem;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            line-height: 1.9;
+        }
+
+        .pillars-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .pillar-item {
+            padding: 1.5rem;
+            border-left: 2px solid rgba(197, 160, 89, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .pillar-item:hover {
+            border-left-color: var(--accent-navy);
+            background: rgba(11, 27, 61, 0.01);
+        }
+
+        .pillar-item strong {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--accent-navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .pillar-item p {
+            font-size: 0.93rem;
+            color: var(--text-secondary);
+        }
+
+        /* Section Contact Majestueuse */
+        .contact {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(11, 27, 61, 0.9), rgba(5, 13, 30, 0.94)), url("assets/phenix-background.png") center 48% / cover no-repeat;
+            color: white;
+            border: none;
+            position: relative;
+            padding: 8rem 0;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 80% 80%, rgba(197, 160, 89, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .contact .section-title {
+            color: white;
+            font-size: 2.8rem;
+        }
+
+        .contact p {
+            color: rgba(252, 251, 250, 0.8);
+            max-width: 650px;
+            margin: 0 auto 3.5rem auto;
+            font-size: 1.15rem;
+            font-weight: 300;
+        }
+
+        .btn-gold {
+            background-color: var(--accent-gold);
+            color: var(--accent-navy);
+            border: 1px solid var(--accent-gold);
+            font-weight: 600;
+            box-shadow: 0 5px 20px rgba(197, 160, 89, 0.2);
+        }
+
+        .btn-gold:hover {
+            background-color: white;
+            border-color: white;
+            color: var(--accent-navy);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.25);
+        }
+
+        /* Pied de page Professionnel */
+        footer {
+            padding: 4rem 0;
+            text-align: center;
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent-navy);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .motion-ready [data-aos] {
+            opacity: 0;
+            transform: translate3d(0, 22px, 0);
+            transition: opacity 800ms ease, transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+            transition-delay: var(--motion-delay, 0ms);
+        }
+
+        .motion-ready [data-aos="fade-down"] {
+            transform: translate3d(0, -18px, 0);
+        }
+
+        .motion-ready [data-aos="fade-left"],
+        .motion-ready [data-aos="fade-right"] {
+            transform: translate3d(24px, 0, 0);
+        }
+
+        .motion-ready [data-aos="fade-right"] {
+            transform: translate3d(-24px, 0, 0);
+        }
+
+        .motion-ready [data-aos^="zoom"] {
+            transform: scale(0.96);
+        }
+
+        .motion-ready [data-aos].is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .motion-ready [data-aos] {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+
+        /* Design Adaptatif Mobile */
+        @media (max-width: 992px) {
+            .services-grid, .pricing-grid, .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .pillars-list {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .hero h1 { font-size: 2.8rem; }
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 1.2rem 0; }
+            .nav-wrapper { flex-direction: column; gap: 1.2rem; }
+            nav { width: 100%; flex-wrap: wrap; justify-content: center; gap: 0.25rem 0.6rem; }
+            nav a { margin: 0; padding: 0.25rem; font-size: 0.9rem; }
+            .hero { padding: 7rem 0 5rem 0; }
+            .hero h1 { font-size: 2.3rem; }
+            .hero p { font-size: 1.1rem; }
+            .cta-group { flex-direction: column; gap: 1rem; padding: 0 1.5rem; }
+            section { padding: 5rem 0; }
+            .section-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ligne de progression au défilement -->
+    <div class="progress-bar" id="myBar"></div>
+
+    <header id="mainHeader">
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">PHENIX-ROYAL<span>.</span></a>
+            <nav>
+                <a href="#expertises">Expertises</a>
+                <a href="#honoraires">Honoraires</a>
+                <a href="#travaux">Travaux</a>
+                <a href="#manifeste">Manifeste</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge" data-aos="fade-down" data-aos-duration="1000">Haute Sphère Numérique</div>
+            <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">L'architecture numérique de vos ambitions.</h1>
+            <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">PHENIX-ROYAL conçoit des plateformes web épurées, hautement performantes et optimisées pour les terminaux mobiles. Nous traduisons votre expertise en une identité visuelle d'autorité intellectuelle et professionnelle.</p>
+            <div class="cta-group" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600">
+                <a href="https://wa.me/2250713868091" target="_blank" rel="noopener" class="btn btn-primary">Consulter les honoraires</a>
+                <a href="#travaux" class="btn btn-secondary">Parcourir les travaux</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="expertises">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Domaines d'intervention</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Modélisation et déploiement de solutions numériques adaptées aux exigences des institutions et des projets d'envergure.</p>
+
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-right" data-aos-delay="200">
+                    <h3><span class="service-icon">🌐</span> Plateformes Vitrines</h3>
+                    <p>Présentation rigoureuse de votre activité, architecture de contenu claire et ergonomie soignée pour asseoir la respectabilité de votre structure sur le réseau mondial.</p>
+                </div>
+                <div class="service-card" data-aos="fade-left" data-aos-delay="300">
+                    <h3><span class="service-icon">🛒</span> Systèmes E-Commerce</h3>
+                    <p>Structures marchandes fluides, épurées et sécurisées pour la gestion méthodique de vos catalogues et des flux d'échanges transactionnels.</p>
+                </div>
+                <div class="service-card" data-aos="fade-right" data-aos-delay="400">
+                    <h3><span class="service-icon">🎨</span> Identité Graphique</h3>
+                    <p>Création de logotypes épurés et élaboration de chartes graphiques cohérentes pour pérenniser, valoriser et sacraliser l'image de votre marque.</p>
+                </div>
+                <div class="service-card" data-aos="fade-left" data-aos-delay="500">
+                    <h3><span class="service-icon">🛠</span> Audit & Optimisation</h3>
+                    <p>Amélioration structurelle des plateformes existantes, résolution d'anomalies de code et accompagnement d'ingénierie applicative continu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="honoraires">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Grille des honoraires indicatifs</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">La tarification définitive fait l'objet d'une étude technique préalable, indexée sur la complexité fonctionnelle requise.</p>
+
+            <div class="pricing-grid">
+                <div class="price-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="price-meta">Ingénierie Web</div>
+                    <h3>Conception de Plateforme</h3>
+                    <div class="amount">À partir de 30 000 F CFA</div>
+                    <ul class="price-features">
+                        <li>Architecture adaptative (Smartphones & Tablettes)</li>
+                        <li>Design sur mesure de haute tenue visuelle</li>
+                        <li>Cartographie et structuration des services</li>
+                        <li>Intégration d'interfaces de communication directes</li>
+                        <li>Déploiement et publication sur infrastructure serveur</li>
+                    </ul>
+                    <a href="https://wa.me/2250713868091" target="_blank" rel="noopener" class="btn btn-secondary">Initier une étude de projet</a>
+                </div>
+
+                <div class="price-card featured" data-aos="fade-up" data-aos-delay="400">
+                    <div class="price-meta">Identité Visuelle</div>
+                    <h3>Logotype & Alignement</h3>
+                    <div class="amount">À partir de 20 000 F CFA</div>
+                    <ul class="price-features">
+                        <li>Recherche conceptuelle et sémantique</li>
+                        <li>Livrables vectoriels haute définition (Web & Impression)</li>
+                        <li>Déclinaisons adaptées aux supports de communication</li>
+                        <li>Fichiers sources structurés prêts à l'exploitation</li>
+                        <li>Possibilité d'extension vers une charte graphique globale</li>
+                    </ul>
+                    <a href="https://wa.me/2250713868091" target="_blank" rel="noopener" class="btn btn-primary">Commander une étude graphique</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="travaux">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Travaux et contributions récents</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Une sélection d'espaces fonctionnels et d'architectures applicatives récemment documentés.</p>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-card" data-aos="zoom-in-right">
+                    <div class="portfolio-img-wrapper portfolio-boussole">
+                        Boussole — Épurement & Clarté
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-tag">Web Interface Design</div>
+                        <h3>Boussole — Comprendre, à votre rythme</h3>
+                        <p>Un espace web calme conçu pour permettre l'assimilation et la lecture critique de sources documentaires complexes de manière fluide et séquentielle.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-aos="zoom-in-left">
+                    <div class="portfolio-img-wrapper portfolio-neo">
+                        NÉO — Intelligence Inclusive
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-tag">Intelligence Artificielle • Voix</div>
+                        <h3>NÉO — Assistant Vocal IA</h3>
+                        <p>Système conversationnel et vocal avancé pour la gestion multi-structures des TPE. Intègre des modules d'agenda prédictif et une assistance audio inclusive.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="manifeste">
+        <div class="container about-wrapper">
+            <h2 class="section-title" data-aos="fade-up">L'exigence technique au service de votre clarté</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Le manifeste d'un développeur web rigoureux.</p>
+            <div class="about-text" data-aos="fade-up" data-aos-delay="200">
+                <p>L'objectif fondamental de PHENIX-ROYAL est de doter votre organisation d'une infrastructure numérique hautement lisible, moderne et pérenne, en éliminant toute complexité technique obsolète. Chaque projet est traité selon une approche méthodique stricte où le design sert la clarté du propos et la performance logicielle garantit l'efficacité.</p>
+            </div>
+            <ul class="pillars-list">
+                <li class="pillar-item" data-aos="fade-up" data-aos-delay="300">
+                    <strong>Rigueur ergonomique</strong>
+                    <p>Des interfaces adaptées de façon chirurgicale aux usages mobiles contemporains.</p>
+                </li>
+                <li class="pillar-item" data-aos="fade-up" data-aos-delay="400">
+                    <strong>Rationalisation</strong>
+                    <p>Des structures techniques calibrées pour respecter rigoureusement vos allocations budgétaires.</p>
+                </li>
+                <li class="pillar-item" data-aos="fade-up" data-aos-delay="500">
+                    <strong>Suivi direct</strong>
+                    <p>Un dialogue direct de haut niveau et une transparence totale tout au long du cycle de développement.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title" data-aos="zoom-in">Avez-vous un projet d'infrastructure web ?</h2>
+            <p data-aos="zoom-in" data-aos-delay="100">Présentez les spécifications de votre futur espace numérique ou demandez une audience technique préliminaire.</p>
+            <a href="https://wa.me/2250713868091" target="_blank" rel="noopener" class="btn btn-gold" data-aos="fade-up" data-aos-delay="200">Entrer en liaison directe via WhatsApp</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">PHENIX-ROYAL.</div>
+            <p>&copy; 2026 PHENIX-ROYAL — Direction d'Ingénierie & Design Numérique. Tous droits réservés.</p>
+            <p style="margin-top: 0.75rem; font-size: 0.82rem; opacity: 0.65;">Liaison technique directe : +225 07 13 86 80 91</p>
+        </div>
+    </footer>
+
+    <script>
+        const animatedItems = [...document.querySelectorAll("[data-aos]")];
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        if (!reduceMotion && "IntersectionObserver" in window) {
+            animatedItems.forEach((item) => {
+                const delay = Number(item.dataset.aosDelay);
+                if (Number.isFinite(delay) && delay > 0) {
+                    item.style.setProperty("--motion-delay", `${delay}ms`);
+                }
+            });
+            document.documentElement.classList.add("motion-ready");
+            const observer = new IntersectionObserver((entries, currentObserver) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                        currentObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: "0px 0px -32px 0px" });
+            animatedItems.forEach((item) => observer.observe(item));
+        } else {
+            animatedItems.forEach((item) => item.classList.add("is-visible"));
+        }
+
+        function handleScrollEffects() {
+            const scrollTop = document.documentElement.scrollTop;
+            const scrollRange = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+            document.getElementById("myBar").style.width = `${Math.min(scrollTop / scrollRange * 100, 100)}%`;
+            document.getElementById("mainHeader").classList.toggle("scrolled", scrollTop > 50);
+        }
+
+        window.addEventListener("scroll", handleScrollEffects, { passive: true });
+        handleScrollEffects();
+    </script>
+</body>
+</html>

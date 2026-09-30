@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520">
+<rect width="900" height="520" rx="28" fill="#111722"/>
+<rect x="50" y="55" width="800" height="410" rx="24" fill="#1a2230"/>
+<circle cx="115" cy="120" r="34" fill="#7dd3fc"/>
+<text x="170" y="118" font-family="Arial" font-size="30" font-weight="700" fill="#fff">NÉO</text>
+<text x="170" y="148" font-family="Arial" font-size="17" fill="#9ca9ba">Votre employé IA de messagerie</text>
+<rect x="90" y="210" width="300" height="85" rx="20" fill="#263448"/>
+<rect x="510" y="260" width="300" height="85" rx="20" fill="#214a4d"/>
+<rect x="90" y="340" width="230" height="55" rx="18" fill="#334155"/>
+<rect x="350" y="340" width="230" height="55" rx="18" fill="#334155"/>
+<rect x="610" y="340" width="200" height="55" rx="18" fill="#334155"/>
+<text x="115" y="245" font-family="Arial" font-size="18" fill="#dbeafe">WhatsApp • Messages</text>
+<text x="535" y="295" font-family="Arial" font-size="18" fill="#d1fae5">Réponse IA • Agenda</text>
+</svg>

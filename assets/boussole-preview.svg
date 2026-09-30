@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520">
+<rect width="900" height="520" rx="28" fill="#f5f4ee"/>
+<circle cx="450" cy="170" r="78" fill="#d8c9a6"/>
+<path d="M450 105 L475 175 L450 235 L425 175Z" fill="#263238"/>
+<rect x="90" y="285" width="720" height="24" rx="12" fill="#d9d4c8"/>
+<rect x="90" y="335" width="570" height="18" rx="9" fill="#e1ddd4"/>
+<rect x="90" y="380" width="640" height="18" rx="9" fill="#e1ddd4"/>
+<rect x="90" y="430" width="430" height="18" rx="9" fill="#e1ddd4"/>
+<text x="450" y="80" text-anchor="middle" font-family="Arial" font-size="30" font-weight="700" fill="#253238">BOUSSOLE</text>
+</svg>
